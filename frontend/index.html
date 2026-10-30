@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RAMS Reviewer</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <h1>RAMS Reviewer</h1>
+        <span class="brand-sub">Subcontractor RAMS check · Nutrient Python SDK</span>
+      </div>
+      <div class="topbar-actions">
+        <button id="stopBtn" class="btn btn-quiet" hidden>Stop</button>
+        <button id="reviewBtn" class="btn btn-primary">Review all documents</button>
+      </div>
+    </div>
+    <div id="progressTrack" class="progress-track" hidden><div id="progressBar" class="progress-bar"></div></div>
+  </header>
+
+  <main class="layout">
+    <aside class="panel documents">
+      <div class="panel-head">
+        <h2>Documents</h2>
+        <span id="docCount" class="count-pill">0</span>
+      </div>
+      <p id="progressLabel" class="progress-label" hidden></p>
+      <div id="fileList" class="file-list"></div>
+    </aside>
+
+    <section class="panel review">
+      <div id="reviewEmpty" class="empty">
+        <div class="empty-art">&#10003;</div>
+        <h3>Nothing reviewed yet</h3>
+        <p>Press <b>Review all documents</b>, or tick the circles to review a selection. Each document is checked against the RAMS review checklist.</p>
+      </div>
+      <div id="reviewBody" hidden></div>
+    </section>
+
+    <section class="panel viewer-panel">
+      <div id="viewerEmpty" class="empty">
+        <div class="empty-art">&#128269;</div>
+        <h3>Document viewer</h3>
+        <p>Select a reviewed document, then click any <b>YES</b> item to see its evidence highlighted at the exact position on the page.</p>
+      </div>
+      <div id="viewer"></div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" hidden></div>
+
+  <script src="https://cdn.cloud.pspdfkit.com/pspdfkit-web@1.6.0/nutrient-viewer.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>
